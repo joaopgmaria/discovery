@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  consul:
+    hostname: consul
+    container_name: consul
+    image: consul
+    ports:
+      - "8500:8500"
+    environment:
+      CONSUL_BIND_INTERFACE: eth0
+
+  api:
+    ports:
+      - "8800-8888:80"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+    build:
+      context: DemoBackend
+
+  client:
+    ports:
+      - "9800-9888:80"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+    build:
+      context: DemoClient

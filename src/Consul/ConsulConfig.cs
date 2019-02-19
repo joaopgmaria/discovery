@@ -1,0 +1,18 @@
+﻿namespace Discovery.Consul
+{
+    public class ConsulConfig
+    {
+        public string Address { get; set; }
+        public string ServiceName { get; set; }
+
+        public ConsulConfig()
+        {
+        }
+
+        public ConsulConfig(string address, string serviceName)
+        {
+            Address = address;
+            ServiceName = serviceName;
+        }
+    }
+}
